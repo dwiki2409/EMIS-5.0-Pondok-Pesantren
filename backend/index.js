@@ -14,7 +14,7 @@ app.use(express.json({
     limit: '10mb'
 }));
 app.use(cors({
-    origin: ["https://emis-5-0-pondok-pesantren.vercel.app/"],
+    origin: "*",
     methods: ["POST", "GET", "PUT", "DELETE"],
     credentials: true
 }));
