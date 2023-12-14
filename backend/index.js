@@ -9,12 +9,6 @@ const PORT = process.env.PORT || 5001;
 
 dotenv.config();
 
-app.use(express.json()) // for parsing application/json data in the request body
-app.use(express.urlencoded({
-    extended: true
-})) // for parsing application/x-www-form-urlencoded data in the request bod
-
-
 mongoose
     .connect(process.env.MONGO_URL, {
         useNewUrlParser: true,
@@ -22,6 +16,14 @@ mongoose
     })
     .then(() => console.log("Connected to MongoDB"))
     .catch((err) => console.log("NOT CONNECTED TO NETWORK", err));
+
+app.use(express.json()) // for parsing application/json data in the request body
+app.use(express.urlencoded({
+    extended: true
+})) // for parsing application/x-www-form-urlencoded data in the request bod
+app.use(cookieParser())
+
+
 
 // Serve static files from the "build" directory
 app.use(express.static(path.join(__dirname, "build")));
@@ -35,5 +37,5 @@ app.get('*', (req, res) => {
 });
 
 app.listen(PORT, () => {
-    console.log(`Server started at port no. ${PORT}`);
-});
+    console.log(`Server started at  http://localhost:${PORT}`)
+})
