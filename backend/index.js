@@ -13,13 +13,11 @@ dotenv.config();
 app.use(express.json({
     limit: '10mb'
 }));
-// app.use(cors());
-app.use(function (req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Methods", "GET,PUT,PATCH,POST,DELETE");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-});
+app.use(cors({
+    origin: ["https://emis-5-0-pondok-pesantren.vercel.app/"],
+    methods: ["POST", "GET", "PUT", "DELETE"],
+    credentials: true
+}));
 
 mongoose
     .connect(process.env.MONGO_URL, {
