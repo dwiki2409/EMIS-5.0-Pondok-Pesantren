@@ -23,11 +23,8 @@ app.use(express.urlencoded({
     extended: true
 })) // for parsing application/x-www-form-urlencoded data in the request bod
 
-app.use(cors({
-    origin: ["https://emis-5-0-pondok-pesantren.vercel.app/"],
-    methods: ["POST", "GET", "PUT", "DELETE"],
-    credentials: true
-}));
+// Enable CORS for all routes
+app.use(cors());
 
 
 
