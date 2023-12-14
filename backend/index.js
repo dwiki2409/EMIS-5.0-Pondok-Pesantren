@@ -21,7 +21,6 @@ app.use(express.json()) // for parsing application/json data in the request body
 app.use(express.urlencoded({
     extended: true
 })) // for parsing application/x-www-form-urlencoded data in the request bod
-app.use(cookieParser())
 
 
 
