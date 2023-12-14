@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require("cors")
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const path = require("path"); // Import the path module
@@ -21,6 +22,8 @@ app.use(express.json()) // for parsing application/json data in the request body
 app.use(express.urlencoded({
     extended: true
 })) // for parsing application/x-www-form-urlencoded data in the request bod
+
+app.use(cors());
 
 
 
