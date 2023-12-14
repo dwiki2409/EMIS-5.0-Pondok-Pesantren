@@ -13,7 +13,11 @@ dotenv.config();
 app.use(express.json({
     limit: '10mb'
 }));
-app.use(cors());
+app.use(cors({
+    origin: ["https://emis-5-0-pondok-pesantren.vercel.app/"],
+    methods: ["POST", "GET", "PUT", "DELETE"],
+    credentials: true
+}));
 
 mongoose
     .connect(process.env.MONGO_URL, {
